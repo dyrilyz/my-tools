@@ -1,6 +1,6 @@
 {
   "name": "@dyrily/svg-convert",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "private": false,
   "scripts": {
@@ -11,7 +11,13 @@
     "sc": "dist/index.js",
     "svg-convert": "dist/index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "svg-convert"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyrilyz/my-tools/tree/main/packages/svg-convert"
+  },
   "author": "",
   "license": "MIT",
   "description": "",
