@@ -1,0 +1,39 @@
+{
+  "name": "dyrily",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:svg2": "sc -s test/svg/icon -d test/svg/comp -t test/svg/types/g.d.ts --prefix=icon- -O"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "printWidth": 120,
+    "overrides": [
+      {
+        "files": "*.tsx",
+        "options": {
+          "printWidth": 200
+        }
+      },
+      {
+        "files": "*.ts",
+        "options": {
+          "printWidth": 200
+        }
+      }
+    ]
+  }
+}
