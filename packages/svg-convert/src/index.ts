@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import cli, { type ICLIArgs } from './cli'
-import { start } from './core'
+import { createApp } from './core'
 
 const options = cli.parse(process.argv).opts() as ICLIArgs
-start(options)
+createApp(options).start()

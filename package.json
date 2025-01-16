@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:svg2": "sc -s test/svg/icon -d test/svg/comp -t test/svg/types/g.d.ts --prefix=icon- -O"
+    "test:svg2": "sc -s test/svg/icon -d src/comp -t test/svg/types/g.d.ts --prefix=icon- -O"
   },
-  "author": "",
+  "author": "dyrily",
   "license": "MIT",
   "description": "",
   "workspaces": [
