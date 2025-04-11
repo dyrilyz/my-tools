@@ -15,7 +15,7 @@ const fast_xml_parser_1 = require("fast-xml-parser");
 const promises_1 = require("node:fs/promises");
 const dirname = process.cwd();
 const xmlAttrsPrefix = '@_';
-const includeAttrs = ['viewBox'].map((t) => `${xmlAttrsPrefix}${t}`);
+const includeAttrs = ['viewBox', 'fill', 'stroke'].map((t) => `${xmlAttrsPrefix}${t}`);
 const includeTags = ['svg', 'circle', 'ellipse', 'rect', 'line', 'polyline', 'polygon', 'path', 'text', 'tspan', 'g', 'defs', 'use', 'linearGradient', 'pattern', 'mask', 'clipPath', 'filter'];
 class App {
     constructor(options) {
@@ -76,7 +76,25 @@ const corePlugin = {
     beforeOutput(app, component) {
         return __awaiter(this, void 0, void 0, function* () {
             if (!app.options.colorful) {
-                component.template = component.template.replace(/ fill="[^"]*"/g, ' fill="currentColor"');
+                const matchFill = component.template.match(/ fill="[^"]*"/g);
+                debugger;
+                if (matchFill === null || matchFill === void 0 ? void 0 : matchFill.length) {
+                    for (const item of matchFill) {
+                        if (item == ' fill="none"')
+                            continue;
+                        component.template = component.template.replace(item, ' fill="currentColor"');
+                    }
+                }
+                const matchStroke = component.template.match(/ stroke="[^"]*"/g);
+                if (matchStroke === null || matchStroke === void 0 ? void 0 : matchStroke.length) {
+                    for (const item of matchStroke) {
+                        if (item == ' stroke="none"')
+                            continue;
+                        component.template = component.template.replace(item, ' stroke="currentColor"');
+                    }
+                }
+                // component.template = component.template.replace(/ fill="[^"]*"/g, ' fill="currentColor"')
+                // component.template = component.template.replace(/ stroke="[^"]*"/g, ' fill="currentColor"')
             }
             if (!app.options.allowOverride) {
                 try {
